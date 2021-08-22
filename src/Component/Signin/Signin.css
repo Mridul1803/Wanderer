@@ -1,0 +1,57 @@
+.login-container{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #74ebd5;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ACB6E5, #74ebd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.login-modal{
+    /* border: 1px solid black; */
+    width: 70vw;
+    height: 70vh;
+    display: flex;
+    border-radius: 40px;
+    /* box-shadow: 10px 10px 8px 10px #bdbdbd; */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: white;
+}
+
+.wallpaper-div{
+    width: 60%;
+    height: 100%;
+    /* border: 1px solid red; */
+    border-radius: 40px 0 0 40px;
+    background-image: url('IMG7.jpg');
+    background-size:cover;
+}
+
+.input-div{
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading-div{
+    font-size: 1.9rem;
+    font-family:'Times New Roman', Times, serif ;
+    font-weight: 600;
+    margin-bottom: 6%;
+}
+
+.signup-link{
+    font-family:'Times New Roman', Times, serif ;
+    margin-top: 20px;
+}
+
+h4{
+    color: red;
+    font-family:'Times New Roman', Times, serif ;
+}
