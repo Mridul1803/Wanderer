@@ -20,11 +20,11 @@ body{
 .bottom-container
 {
     height: max-content;
-    min-height: 500px;
+    min-height: calc(100vh - 380px);
     border-top: 3px solid #673c8f;
     display: flex;
     justify-content:start;
-    padding-top: 5%;
+    padding: 5% 0;
     overflow: hidden;
 }
 

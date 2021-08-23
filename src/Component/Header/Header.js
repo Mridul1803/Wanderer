@@ -8,8 +8,12 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { makeStyles } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+import { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const useStyles = makeStyles({
     grow: {
@@ -30,7 +34,24 @@ const useStyles = makeStyles({
 
 function Header(props) {
     const classes = useStyles();
+    const {logout} = useContext(AuthContext);
+    const history = useHistory();
     const menuId = 'primary-search-account-menu';
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const isMenuOpen = Boolean(anchorEl);
+    const handleProfileMenuOpen = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    
+    const handleMenuClose = () => {
+        setAnchorEl(null);
+    };
+
+    const handlesignout = async ()=>{
+        await logout();
+        history.push('/signin');
+    }
+
     return (
 
         <div className={classes.grow}>
@@ -55,7 +76,7 @@ function Header(props) {
                             </Link>
                         </IconButton>
 
-                        <IconButton
+                        {/* <IconButton
                             edge="end"
                             aria-label="account of current user"
                             aria-controls={menuId}
@@ -65,7 +86,27 @@ function Header(props) {
                             <Link to='/profile' style={ {color:'white'} } >
                                 <AccountCircle />
                             </Link>
+                        </IconButton> */}
+                        <IconButton
+                            edge="end"
+                            aria-label="account of current user"
+                            aria-controls={menuId}
+                            aria-haspopup="true"
+                            onClick={handleProfileMenuOpen}
+                            color="inherit"
+                            >
+                            <AccountCircle />
                         </IconButton>
+                        <Menu id="simple-menu"
+                            anchorEl={anchorEl}
+                            keepMounted
+                            open={Boolean(anchorEl)}
+                            onClose={handleMenuClose}>
+                                <MenuItem >
+                                    <Link to="/profile" style={{color:"black" , textDecoration:"none"}}>Profile</Link>
+                                </MenuItem>
+                                <MenuItem onClick={handlesignout} >Sign Out</MenuItem>
+                        </Menu>
                     </div>
                 </Toolbar>
             </AppBar>
