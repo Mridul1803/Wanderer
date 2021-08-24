@@ -58,7 +58,7 @@ function Header(props) {
             <AppBar position="static">
                 <Toolbar className={classes.toolbar} >
                     <Typography className={classes.title} variant="h4" noWrap>
-                        Wanderer
+                        WANDERER
                     </Typography>
 
                     {/* <img src='img1.jpg' alt='alt' className='logo' /> */}
