@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 // import vid1 from './fashion.mp4'
 // import vid2 from './tree.mp4'
 // import vid3 from './water.mp4'
 // import vid4 from './frog.mp4'
-import VideoIo from './VideoIo'
+// import VideoIo from './VideoIo'
 
 function Ioa() {
     // const [source, setSource] = useState( [{url:vid1}, {url:vid2}, {url:vid3}, {url:vid4}] )
@@ -29,7 +29,7 @@ function Ioa() {
         vidEle.forEach( el=>{
             observer.observe(el);
         } )
-    }, [])
+    }, [observer])
 
     return (
         <div>

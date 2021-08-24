@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Alert from '@material-ui/lab/Alert';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import {v4 as uuidv4} from 'uuid'
 import {storage, database} from '../../../firebase'
@@ -30,7 +29,7 @@ function UploadFile(props) {
             return;
         }
 
-        if( types.indexOf(file.type) == -1 )
+        if( types.indexOf(file.type) === -1 )
         {
             setError("Select a file !");
             setTimeout( ()=>{ setError(null) }, 2000 )

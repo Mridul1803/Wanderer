@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './ProfilePost.css'
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -7,7 +7,6 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import IconButton from '@material-ui/core/IconButton';
-import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import { Avatar } from '@material-ui/core';
@@ -66,7 +65,7 @@ function ProfilePost({source, postData=null, userData=null}) {
                             </Card>
                             <div className='extra'>
                                 <div className='likes'>
-                                    <Typography className={classes.typo} variant='body2'>Liked By {postData.likes.length == 0 ? 'nobody' : ` others`}</Typography>
+                                    <Typography className={classes.typo} variant='body2'>Liked By {postData.likes.length === 0 ? 'nobody' : ` others`}</Typography>
                                 </div>
                                 <AddComment userData={userData} postData={postData} />
                             </div>

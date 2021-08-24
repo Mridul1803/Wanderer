@@ -5,40 +5,37 @@ import { database } from '../../firebase';
 import Header from '../Header/Header'
 import Avatar from '@material-ui/core/Avatar';
 import './Profile.css';
-import { makeStyles } from '@material-ui/core';
 import ProfilePost from './ProfilePost/ProfilePost';
 
-const useStyle = makeStyles({
-    root : {
-        width: '100px',
-        height: '100px',
-    }
-})
 
 function Profile() {
-    const classes = useStyle();
+    // const classes = useStyle();
 
     const {currentUser} = useContext(AuthContext);
     const [userData, setUserData] = useState(null);
     const [posts, setPosts] = useState(null);
 
     useEffect( () => {
-        const unsub = database.users.doc(currentUser.uid).onSnapshot( (doc)=>{
+        database.users.doc(currentUser.uid).onSnapshot( (doc)=>{
             setUserData(doc.data() );
         } )
 
     },[currentUser])
     
-    useEffect( async ()=>{
-        let postarr = [];
-        
-        for( let i=0; i<userData?.postIds?.length; ++i )
-        {
-            let data = await database.posts.doc( userData.postIds[i] ).get();
-            postarr.push(data.data());
-            console.log(data.data());
+    useEffect( ()=>{
+
+        async function getdata(){
+            let postarr = [];
+            
+            for( let i=0; i<userData?.postIds?.length; ++i )
+            {
+                let data = await database.posts.doc( userData.postIds[i] ).get();
+                postarr.push(data.data());
+                console.log(data.data());
+            }
+            setPosts(postarr);
         }
-        setPosts(postarr);
+        getdata();
     }, [userData] )
 
     // console.log(userData)

@@ -163,7 +163,7 @@ function Posts({userData}) {
                                                             </Card>
                                                             <div className='extra'>
                                                                 <div className='likes'>
-                                                                    <Typography className={classes.typo} variant='body2'>Liked By {post.likes.length == 0 ? 'nobody' : ` others`}</Typography>
+                                                                    <Typography className={classes.typo} variant='body2'>Liked By {post.likes.length === 0 ? 'nobody' : ` others`}</Typography>
                                                                 </div>
                                                                 <AddComment userData={userData} postData={post} />
                                                             </div>

@@ -1,10 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { makeStyles } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -20,8 +17,8 @@ const useStyles = makeStyles({
         flexGrow: 1,
     },
     toolbar:{
-        background: 'linear-gradient(90deg, #4b6cb7 0%, #182848 100%)',
-        background: 'linear-gradient(to right, #2F0743, #41295a)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        // background: 'linear-gradient(90deg, #4b6cb7 0%, #182848 100%)',
+        // background: 'linear-gradient(to right, #2F0743, #41295a)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         background: 'linear-gradient(to right, #42275a, #734b6d)'
     },
     logo : {
@@ -38,7 +35,7 @@ function Header(props) {
     const history = useHistory();
     const menuId = 'primary-search-account-menu';
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const isMenuOpen = Boolean(anchorEl);
+    // const isMenuOpen = Boolean(anchorEl);
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };

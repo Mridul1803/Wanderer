@@ -85,7 +85,7 @@ function Signup() {
         {
             history.push('/');
         }
-    },[] );
+    },[currentUser, history] );
 
     const handleFileSubmit = (e)=>{
         let file = e.target.files[0];

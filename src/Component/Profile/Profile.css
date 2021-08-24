@@ -23,7 +23,7 @@ body{
     min-height: calc(100vh - 380px);
     border-top: 3px solid #673c8f;
     display: flex;
-    justify-content:start;
+    justify-content:flex-start;
     padding: 5% 0;
     overflow: hidden;
 }

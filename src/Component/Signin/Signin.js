@@ -12,14 +12,14 @@ function Signin() {
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
-    const [signincalled, setsignincalled] = useState(false)
+    // const [signincalled, setsignincalled] = useState(false)
     const {login, currentUser} = useContext(AuthContext);
     const history = useHistory();
     const handleSignin = async(e)=>{
         e.preventDefault();
         
         try{
-            setsignincalled(true);
+            // setsignincalled(true);
             setLoading(true);
             let res = await login(email, password);
             console.log(res);
@@ -38,7 +38,7 @@ function Signin() {
         {
             history.push('/');
         }
-    },[] );
+    },[currentUser, history] );
     return (
         <div className='login-container'>
             <div className='login-modal' >
